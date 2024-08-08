@@ -19,8 +19,8 @@ const MainTitle: React.FC<MainTitleProps> = ({ text }) => {
 
 const styles = StyleSheet.create({
     container: {
-        alignItems: 'center', // Centre le contenu horizontalement
-        marginLeft: 16, // Ajoute une marge gauche de 16px pour l'ensemble du composant
+        alignItems: 'center', 
+        marginLeft: 16,
       },
   title: {
     fontFamily: 'Cera Pro', 
