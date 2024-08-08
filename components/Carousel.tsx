@@ -1,8 +1,6 @@
 import React, { useRef } from 'react';
 import { View, ScrollView, Dimensions, StyleSheet, Animated } from 'react-native';
-import Bubble from './ItemCarousel/Item';
-import Item from './ItemCarousel/Item';
-import Hearth from './ItemCarousel/Item';
+
 
 const { width } = Dimensions.get('window');
 const containerWidth = 344.43 + 32; // 344.43 + 16 * 2 (for marginHorizontal)
@@ -23,16 +21,16 @@ const Carousel = () => {
         )}
         scrollEventThrottle={16}
       >
-        <View style={styles.container}>
-          <Bubble text="Hello"/>
-          <View style={styles.circleTop} />
-          <View style={styles.circleBot } />
+        <View style={styleCard1.container}>
+          <View style={styleCard1.circleTop} />
+          <View style={styleCard1.circleBot} />
         </View>
-        <View style={styles.containerWrapper}>
-          <Item backgroundColor="green" />
+        <View style={styleCard2.container}>
+   
         </View>
-        <View style={styles.containerWrapper}>
-          <Hearth backgroundColor="blue" />
+        <View style={styleCard3.container}>
+          <View style={styleCard3.circleTop} />
+          <View style={styleCard3.circleBot} />
         </View>
       </Animated.ScrollView>
     </View>
@@ -48,6 +46,10 @@ const styles = StyleSheet.create({
   scrollViewContent: {
     paddingHorizontal: (width - containerWidth),
   },
+
+});
+
+const styleCard1 = StyleSheet.create({
   container: {
     width: 344,
     height: 311,
@@ -76,11 +78,76 @@ const styles = StyleSheet.create({
     top: 185,
     left: 222,
   },
-  containerWrapper: {
-    width: containerWidth,
-    justifyContent: 'center',
-    alignItems: 'center',
+});
+
+const styleCard2 = StyleSheet.create({
+
+  container: {
+    width: 344,
+    height: 311,
+    marginHorizontal: 16,
+    borderRadius: 9,
+    opacity: 1,
+    backgroundColor: '#FDF3DC', 
+    overflow: 'hidden',// Changed here
   },
+
+circleTop: {
+  width: 140,
+  height: 140,
+  borderRadius: 100,
+  backgroundColor: '#BEF5D8',
+  position: 'absolute',
+  top: -30,
+  left: -30,
+
+},
+circleBot: {
+  width: 155,
+  height: 155,
+  borderRadius: 100,
+  backgroundColor: '#BEF5D8',
+  position: 'absolute',
+  top: 185,
+  left: 222,
+},
+
+
+});
+
+const styleCard3 = StyleSheet.create({
+
+  container: {
+    width: 344,
+    height: 311,
+    marginHorizontal: 16,
+    borderRadius: 9,
+    opacity: 1,
+    backgroundColor: '#E2FAEC', 
+    overflow: 'hidden',// Changed here
+  },
+
+circleTop: {
+  width: 140,
+  height: 140,
+  borderRadius: 100,
+  backgroundColor: '#BEF5D8',
+  position: 'absolute',
+  top: -30,
+  left: -30,
+
+},
+circleBot: {
+  width: 155,
+  height: 155,
+  borderRadius: 100,
+  backgroundColor: '#BEF5D8',
+  position: 'absolute',
+  top: 185,
+  left: 222,
+},
+
+
 });
 
 export default Carousel;

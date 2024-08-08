@@ -30,10 +30,11 @@ const styles = StyleSheet.create({
     textAlign: 'center', 
   },
   underline: {
-    width: '25%', // Ajustez la largeur du rectangle selon vos besoins
-    height: 5, // Hauteur du rectangle
-    backgroundColor: '#FEDE44', // Couleur du rectangle, ajustez selon vos besoins
-    marginTop: 12, // Espace entre le texte et le rectangle
+    width: '25%', 
+    height: 5, 
+    backgroundColor: '#FEDE44',
+    marginTop: 12,
+    marginBottom: 20,
   },
 });
 
