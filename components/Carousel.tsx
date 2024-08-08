@@ -1,76 +1,86 @@
-// components/Carousel.js
-import React from 'react';
-import { View, Text, Dimensions, StyleSheet, Platform } from 'react-native';
-import Carousel, { ParallaxImage } from 'react-native-snap-carousel';
+import React, { useRef } from 'react';
+import { View, ScrollView, Dimensions, StyleSheet, Animated } from 'react-native';
+import Bubble from './ItemCarousel/Item';
+import Item from './ItemCarousel/Item';
+import Hearth from './ItemCarousel/Item';
 
-const { width: viewportWidth } = Dimensions.get('window');
+const { width } = Dimensions.get('window');
+const containerWidth = 344.43 + 32; // 344.43 + 16 * 2 (for marginHorizontal)
 
-const entries = [
-  { title: 'Slide 1', subtitle: 'Subtitle 1', illustration: 'https://via.placeholder.com/600x400' },
-  { title: 'Slide 2', subtitle: 'Subtitle 2', illustration: 'https://via.placeholder.com/600x400' },
-  { title: 'Slide 3', subtitle: 'Subtitle 3', illustration: 'https://via.placeholder.com/600x400' },
-  // Ajoutez plus de slides si nécessaire
-];
+const Carousel = () => {
+  const scrollX = useRef(new Animated.Value(0)).current;
 
-const renderItem = ({ item, index }, parallaxProps) => (
-  <View style={styles.slide}>
-    <ParallaxImage
-      source={{ uri: item.illustration }}
-      containerStyle={styles.imageContainer}
-      style={styles.image}
-      parallaxFactor={0.4}
-      {...parallaxProps}
-    />
-    <Text style={styles.title}>{item.title}</Text>
-    <Text style={styles.subtitle}>{item.subtitle}</Text>
-  </View>
-);
-
-const CarouselComponent = () => {
   return (
-    <Carousel
-      data={entries}
-      renderItem={renderItem}
-      sliderWidth={viewportWidth}
-      itemWidth={viewportWidth * 0.8}
-      layout={'default'}
-      loop={true}
-      hasParallaxImages={true}
-    />
-    
+    <View style={styles.carouselContainer}>
+      <Animated.ScrollView
+        horizontal
+        pagingEnabled
+        showsHorizontalScrollIndicator={false}
+        contentContainerStyle={styles.scrollViewContent}
+        onScroll={Animated.event(
+          [{ nativeEvent: { contentOffset: { x: scrollX } } }],
+          { useNativeDriver: false }
+        )}
+        scrollEventThrottle={16}
+      >
+        <View style={styles.container}>
+          <Bubble text="Hello"/>
+          <View style={styles.circleTop} />
+          <View style={styles.circleBot } />
+        </View>
+        <View style={styles.containerWrapper}>
+          <Item backgroundColor="green" />
+        </View>
+        <View style={styles.containerWrapper}>
+          <Hearth backgroundColor="blue" />
+        </View>
+      </Animated.ScrollView>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
-  slide: {
-    backgroundColor: '#FEDE44',
-    borderRadius: 8,
-    height: 250,
-    padding: 20,
-    marginLeft: 25,
-    marginRight: 25,
+  carouselContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 40,
   },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    marginTop: 10,
+  scrollViewContent: {
+    paddingHorizontal: (width - containerWidth),
   },
-  subtitle: {
-    fontSize: 18,
-    color: '#333',
-    textAlign: 'center',
+  container: {
+    width: 344,
+    height: 311,
+    marginHorizontal: 16,
+    borderRadius: 9,
+    opacity: 1,
+    backgroundColor: '#F0EEFE', 
+    overflow: 'hidden',// Changed here
   },
-  imageContainer: {
-    flex: 1,
-    marginBottom: Platform.select({ ios: 0, android: 1 }), // Prevent a random Android rendering issue
-    backgroundColor: 'white',
-    borderRadius: 8,
+  circleTop: {
+    width: 140,
+    height: 140,
+    borderRadius: 100,
+    backgroundColor: '#D8CDFE',
+    position: 'absolute',
+    top: -30,
+    left: -30,
+
   },
-  image: {
-    ...StyleSheet.absoluteFillObject,
-    resizeMode: 'cover',
+  circleBot: {
+    width: 155,
+    height: 155,
+    borderRadius: 100,
+    backgroundColor: '#D8CDFE',
+    position: 'absolute',
+    top: 185,
+    left: 222,
+  },
+  containerWrapper: {
+    width: containerWidth,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
 
-export default CarouselComponent;
+export default Carousel;

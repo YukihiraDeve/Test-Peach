@@ -3,7 +3,7 @@ import React from 'react';
 import { View, StyleSheet, Text } from 'react-native';
 import Title from '../components/Title';
 import MainTitle from '../components/MainTitle';
-//import CarouselComponent from '../components/Carousel';
+import CarouselModel from '../components/Carousel';
 
 const HomePage: React.FC = () => {
   const handlePress = () => {
@@ -14,7 +14,7 @@ const HomePage: React.FC = () => {
     <View style={styles.container}>
       <MainTitle text="Semaine 1 : Synthèse" />
       <Title text="Vos succès" />
-      {/* <CarouselComponent /> */}
+      <CarouselModel />
       <Title text="Vus d'ensemble" />
       <Title text="Vos prises cette semaine" />
       <Title text="Vos prochaine étapes" />
