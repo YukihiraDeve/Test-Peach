@@ -2,7 +2,13 @@
 import React from 'react';
 import { Text, StyleSheet } from 'react-native';
 
-const Title = ({ text }) => {
+
+interface TitleProps {
+  text: string;
+}
+
+
+const Title: React.FC<TitleProps> = ({ text }) => {
   return <Text style={styles.title}>{text}</Text>;
 };
 
@@ -13,7 +19,8 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     lineHeight: 27.75,
     textAlign: 'left',
-    marginLeft: 16, 
+    marginLeft: 16,
+    marginBottom:20,
   },
 });
 

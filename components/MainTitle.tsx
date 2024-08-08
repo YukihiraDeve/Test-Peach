@@ -2,7 +2,12 @@
 import React from 'react';
 import { Text, StyleSheet, View } from 'react-native';
 
-const MainTitle = ({ text }) => {
+interface MainTitleProps {
+  text: string;
+}
+
+
+const MainTitle: React.FC<MainTitleProps> = ({ text }) => {
   return (
     <View style={styles.container}>
         <Text style={styles.title}>{text}</Text>
