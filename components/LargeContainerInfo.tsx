@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
     color: '#03314B'
 },
 Text: {
-  fontFamily: 'Cera Pro', 
+  fontFamily: 'Cera Pro Light', 
   fontSize: 16,
   fontWeight: '500',
   lineHeight: 20,

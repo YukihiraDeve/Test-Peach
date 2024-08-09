@@ -18,6 +18,7 @@ export default function App() {
       await Font.loadAsync({
         'Cera Pro': require('./assets/fonts/CeraPro-Regular.ttf'),
         'Cera Pro Bold': require('./assets/fonts/CeraPro-Bold.ttf'),
+        'Cera Pro Light': require('./assets/fonts/CeraPro-Light.ttf'),
       });
       setFontsLoaded(true);
     }

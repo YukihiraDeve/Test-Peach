@@ -6,6 +6,7 @@ import CarouselModel from '../components/Carousel';
 import CustomContainer from '../components/CustomeContainer';
 import LargeContainer from '../components/LargeContainer';
 import LargeContainerInfo from '../components/LargeContainerInfo';
+import InfoGraphPrises from '../components/InfoGraphPrise';
 
 const hexagonRed = require('../assets/HexagonRed.png');
 const hexagonGreen = require('../assets/HexagonGreen.png');
@@ -36,6 +37,9 @@ const HomePage: React.FC = () => {
 Sévérité : 10/10" ImageDeco={EclairDeco}  style={styles.customContainer} />
       </View>
       <Title text="Vos prises cette semaine" />
+      <View style={styles.customContainer}>
+        <InfoGraphPrises />
+      </View>
       <Title text="Vos prochaine étapes" />
     </ScrollView>
   );
