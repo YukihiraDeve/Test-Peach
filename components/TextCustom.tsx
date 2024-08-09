@@ -8,7 +8,7 @@ interface TitleProps {
 }
 
 
-const TextCustom: React.FC<TitleProps> = ({ text}) => {
+const TextCustom: React.FC<TitleProps> = ({text}) => {
   return (
         <View style={styles.TextContainer}>
             <Text style={styles.Text}>{text}</Text>

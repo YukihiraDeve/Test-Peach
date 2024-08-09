@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, ScrollView } from 'react-native';
+import { View, StyleSheet, ScrollView, Button } from 'react-native';
 import Title from '../components/Title';
 import MainTitle from '../components/MainTitle';
 import CarouselModel from '../components/Carousel';
@@ -10,6 +10,8 @@ import InfoGraphPrises from '../components/InfoGraphPrise';
 import TextCustom from '../components/TextCustom';
 import TextEmoji from '../components/TextEmoji';
 import UpgradeStep from '../components/UpgradeStep';
+import RappelContainer from '../components/RappelContainer';
+import ButtonContainer from '../components/ButtonContainer';
 
 const hexagonRed = require('../assets/HexagonRed.png');
 const hexagonGreen = require('../assets/HexagonGreen.png');
@@ -53,6 +55,18 @@ avez l’habitude d’être aux horaires de prises." />
         <View style={styles.customContainer}>
           <UpgradeStep Title="Pour s'améliorer" Desc="Vous avez fait de gros progrès cette semaine, continuez comme ça !" ImageDeco={Trophy} />
         </View>
+        <View style={styles.containerMarge}>
+          </View>
+      </View>
+      <View style={styles.customContainer}>
+        <RappelContainer text="Peach vous rappellera demain de procéder à l’entretien de votre Respiventix"/>
+      </View>
+      <View style={styles.containerMarge}>
+      </View>
+      <View style={styles.customContainer}>
+        <ButtonContainer text="Passer au jour suivant"/>
+      </View>
+      <View style={styles.EndPage}>
       </View>
     </ScrollView>
   );
@@ -62,22 +76,25 @@ const styles = StyleSheet.create({
   scrollContainer: {
     flexGrow: 1,
     paddingTop: 100,
-    justifyContent: 'flex-start', // Aligne les éléments au début du scroll
+    justifyContent: 'flex-start', 
   },
   containerRow: {
     flexDirection: 'row',
-    justifyContent: 'flex-start', // Aligne les conteneurs au début
-    marginBottom: 20, // Espace en bas du row container
+    justifyContent: 'flex-start', 
+    marginBottom: 20, 
   },
   customContainer: {
-    marginRight: 6, // Ajoute un espace entre les conteneurs
-    marginLeft: 13, // Ajoute un espace entre les conteneurs
+    marginRight: 6,
+    marginLeft: 13, 
   },
   containerMarge: {
-    marginBottom: 20, // Espace en bas du row container
+    marginBottom: 20, 
   },
   continerMargeTop:{
-    marginTop: 20, // Espace en haut
+    marginTop: 20,
+  },
+  EndPage:{
+    marginBottom: 40,
   }
 });
 
