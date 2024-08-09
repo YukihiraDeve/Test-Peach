@@ -89,9 +89,10 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     borderBottomLeftRadius: 10,
     borderBottomRightRadius: 10,
-    opacity: 10, 
+    opacity: 0.8, 
     gap: 10,
     backgroundColor: '#FFFFFF',
+
   },
 
 });
@@ -216,6 +217,7 @@ image: {
   left: 109.57,
   opacity: 1, 
   transform: [{ rotate: '10deg' }],
+
 },
 
 circleBot: {

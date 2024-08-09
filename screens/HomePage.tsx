@@ -4,10 +4,17 @@ import Title from '../components/Title';
 import MainTitle from '../components/MainTitle';
 import CarouselModel from '../components/Carousel';
 import CustomContainer from '../components/CustomeContainer';
+import LargeContainer from '../components/LargeContainer';
+import LargeContainerInfo from '../components/LargeContainerInfo';
 
 const hexagonRed = require('../assets/HexagonRed.png');
 const hexagonGreen = require('../assets/HexagonGreen.png');
 const hexagonYellow = require('../assets/HexagonYellow.png');
+
+const EclairDeco = require('../assets/img/Eclair.png');
+const CalendrierDeco = require('../assets/img/Calendrier.png');
+
+
 
 
 const HomePage: React.FC = () => {
@@ -20,6 +27,13 @@ const HomePage: React.FC = () => {
       <View style={styles.containerRow}>
         <CustomContainer text="🙂 Votre observance" hexagonImage={hexagonGreen} style={styles.customContainer} />
         <CustomContainer text="💊 Votre record de prises consécutives"  hexagonImage={hexagonYellow}  style={styles.customContainer} />
+      </View>
+      <View style={styles.containerMarge}>
+        <LargeContainer text="Nombre de prises manquées"  hexagonImage={hexagonRed} ImageDeco={CalendrierDeco}  style={styles.customContainer} />
+      </View>
+      <View style={styles.containerMarge}>
+        <LargeContainerInfo Title="1 symptôme ressenti"  Desc="Sensation de coeur qui bat
+Sévérité : 10/10" ImageDeco={EclairDeco}  style={styles.customContainer} />
       </View>
       <Title text="Vos prises cette semaine" />
       <Title text="Vos prochaine étapes" />
@@ -41,6 +55,9 @@ const styles = StyleSheet.create({
   customContainer: {
     marginRight: 6, // Ajoute un espace entre les conteneurs
     marginLeft: 13, // Ajoute un espace entre les conteneurs
+  },
+  containerMarge: {
+    marginBottom: 20, // Espace en bas du row container
   },
 });
 
