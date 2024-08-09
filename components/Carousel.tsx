@@ -3,7 +3,7 @@ import { View, ScrollView, Dimensions, StyleSheet, Animated, Text, Image } from 
 
 
 const { width } = Dimensions.get('window');
-const containerWidth = 344.43 + 32;
+const containerWidth = 340+ 32;
 const Etoile = require('../assets/Etoile.png');
 
 const Carousel = () => {
@@ -20,7 +20,7 @@ const Carousel = () => {
           [{ nativeEvent: { contentOffset: { x: scrollX } } }],
           { useNativeDriver: false }
         )}
-        scrollEventThrottle={16}
+        scrollEventThrottle={20}
       >
         <View style={styleCard1.container}>
           <View style={styleCard1.circleTop} />
@@ -73,11 +73,12 @@ const styles = StyleSheet.create({
   carouselContainer: {
     justifyContent: 'center',
     alignItems: 'center',
+    width: width,
     marginBottom: 40,
     
   },
   scrollViewContent: {
-    paddingHorizontal: (width - containerWidth),
+    paddingHorizontal: (width - containerWidth) / 2,
   },
   Text: {
     fontFamily: 'Cera Pro',

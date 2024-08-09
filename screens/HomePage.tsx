@@ -32,8 +32,8 @@ const HomePage: React.FC = () => {
       <CarouselModel />
       <Title text="Vue d'ensemble" />
       <View style={styles.containerRow}>
-        <CustomContainer text="🙂 Votre observance" hexagonImage={hexagonGreen} hexagonText="10%" style={styles.customContainer} />
-        <CustomContainer text="💊 Votre record de prises consécutives"  hexagonImage={hexagonYellow} hexagonText="1O" style={styles.customContainer} />
+        <CustomContainer text="🙂 Votre observance" hexagonImage={hexagonGreen} style={styles.customContainer} />
+        <CustomContainer text="💊 Votre record de prises consécutives"  hexagonImage={hexagonYellow}  style={styles.customContainer} />
       </View>
       <View style={styles.containerMarge}>
         <LargeContainer text="Nombre de prises manquées" hexagonImage={hexagonRed} ImageDeco={CalendrierDeco}  style={styles.customContainer} />
