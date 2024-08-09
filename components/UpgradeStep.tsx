@@ -1,8 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, ViewStyle } from 'react-native';
 
-
-
 const Arrow = require('../assets/arrow.png');
 const HexagonGrey = require('../assets/HexagonGrey.png');
 const HexagonBlueFully = require('../assets/HexagonBlueFull.png');
@@ -22,9 +20,15 @@ const UpgradeStep: React.FC<CustomContainerProps> = ({ Title, Desc, style, Image
       </View>
       <Image source={ImageDeco} style={styles.Image} />
       <View style={styles.HexagonContainer}>
-        <Image source={HexagonGrey} style={styles.Hexagon} />
+        <View style={styles.HexagonWrapper}>
+          <Image source={HexagonGrey} style={styles.Hexagon} />
+          <Text style={styles.HexagonTextBlack}>83%</Text>
+        </View>
         <Image source={Arrow} style={styles.Arrow} />
-        <Image source={HexagonBlueFully} style={styles.HexagonFull} />
+        <View style={styles.HexagonWrapper}>
+          <Image source={HexagonBlueFully} style={styles.HexagonFull} />
+          <Text style={styles.HexagonText}>100%</Text>
+        </View>
       </View>
       <View style={styles.LittleContainersRow}>
         <View style={[styles.LittleContainer, { marginRight: 12 }]}>
@@ -37,7 +41,6 @@ const UpgradeStep: React.FC<CustomContainerProps> = ({ Title, Desc, style, Image
           </View>
         </View>
         <View style={styles.LittleContainer}>
-        <View style={[styles.LittleContainer, { marginRight: 12 }]}>
           <View style={stylesText.NumberContainer}>
             <View style={stylesText.NumberRow}>
               <Text style={stylesText.NumberLeft}>14/</Text>
@@ -45,7 +48,6 @@ const UpgradeStep: React.FC<CustomContainerProps> = ({ Title, Desc, style, Image
             </View>
             <Text style={stylesText.Desc}>Objectif de prises validées à atteindre</Text>
           </View>
-        </View>
         </View>
       </View>
     </View>
@@ -63,27 +65,27 @@ const stylesText = StyleSheet.create({
         marginLeft: 10,
     },
     NumberContainer: {
-        flexDirection: 'column', // Colonne pour que la description soit en dessous
+        flexDirection: 'column',
         alignItems: 'flex-start',
         marginTop: 15,
         marginLeft: 10,
     },
     NumberRow: {
-        flexDirection: 'row', // Ligne pour aligner "11/" et "14"
+        flexDirection: 'row',
     },
     NumberLeft: {
         fontFamily: 'Cera Pro', 
         fontSize: 21,
         fontWeight: '700',
         lineHeight: 20.75,
-        color: '#153247', // Couleur différente pour "11/"
+        color: '#153247',
     },
     NumberRight: {
         fontFamily: 'Cera Pro', 
         fontSize: 21,
         fontWeight: '700',
         lineHeight: 20.75,
-        color: '#8BA0AC', // Couleur pour "14"
+        color: '#8BA0AC',
     },
     Desc: {
         fontFamily: 'Cera Pro', 
@@ -93,7 +95,6 @@ const stylesText = StyleSheet.create({
         color: '#8BA0AC',
         marginTop: 5,
         height: 40,
-        
     },
 });
 
@@ -143,10 +144,16 @@ const styles = StyleSheet.create({
     transform: [{ rotate: '-10deg' }],
     opacity: 0.4,
   },
-  Arrow: {
-    width: 21,
-    height: 21,
-    marginHorizontal: 10, 
+  HexagonContainer: { 
+    flexDirection: 'row', 
+    justifyContent: 'center',  
+    alignItems: 'center',  
+    marginTop: 20,  
+  },
+  HexagonWrapper: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'relative',
   },
   Hexagon: {
     width: 90.49,
@@ -156,12 +163,30 @@ const styles = StyleSheet.create({
     width: 111,
     height: 111,
   },
-  HexagonContainer: { 
-    flexDirection: 'row', 
-    justifyContent: 'center',  
-    alignItems: 'center',  
-    marginTop: 20,  
+  Arrow: {
+    width: 21,
+    height: 21,
+    marginHorizontal: 10, 
   },
+  HexagonText: {
+    position: 'absolute',
+    fontFamily: 'Cera Pro', 
+    fontSize: 25,
+    fontWeight: '900',
+    color: '#FFFFFF',
+    textAlign: 'center',
+    paddingLeft: 10,
+  },
+  HexagonTextBlack: {
+    position: 'absolute',
+    fontFamily: 'Cera Pro', 
+    fontSize: 25,
+    fontWeight: '900',
+    color: '#03314B',
+    textAlign: 'center',
+    paddingLeft: 10,
+  },
+
 });
 
 export default UpgradeStep;

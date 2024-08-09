@@ -4,6 +4,7 @@ import { View, ScrollView, Dimensions, StyleSheet, Animated, Text, Image } from 
 
 const { width } = Dimensions.get('window');
 const containerWidth = 344.43 + 32;
+const Etoile = require('../assets/Etoile.png');
 
 const Carousel = () => {
   const scrollX = useRef(new Animated.Value(0)).current;
@@ -40,6 +41,16 @@ const Carousel = () => {
             source={require('../assets/img/Trophy.png')} 
             style={styleCard2.image}
           />
+         <Image 
+            source={Etoile} 
+            style={styleCard2.EtoileTop}
+          />
+          <Image 
+            source={Etoile} 
+            style={styleCard2.EtoileBot}
+          />
+  
+          
    
         </View>
         <View style={styleCard3.container}>
@@ -151,18 +162,6 @@ const styleCard2 = StyleSheet.create({
     backgroundColor: '#FDF3DC', 
     overflow: 'hidden',
   },
-
-circleTop: {
-  width: 140,
-  height: 140,
-  borderRadius: 100,
-  backgroundColor: '#BEF5D8',
-  position: 'absolute',
-  top: -30,
-  left: -30,
-
-},
-
 image: {
   width: 153,
   height: 153,
@@ -173,14 +172,21 @@ image: {
   transform: [{ rotate: '-10deg' }],
 },
 
-circleBot: {
-  width: 155,
-  height: 155,
-  borderRadius: 100,
-  backgroundColor: '#BEF5D8',
+EtoileTop: {
+  width: 81,
+  height: 81,
   position: 'absolute',
-  top: 185,
-  left: 222,
+  top: 20,
+  left: 16,
+
+},
+
+EtoileBot: {
+  width: 81,
+  height: 81,
+  position: 'absolute',
+  top: 125,
+  left: 253,
 },
 
 
