@@ -23,6 +23,20 @@ const InfoGraphPrise: React.FC = () => {
           </View>
         ))}
       </View>
+      <View style={styles.legendes}>
+        <View style={styles.legendItem}>
+          <View style={[styles.ColorLegend, { backgroundColor: '#2CE080' }]} />
+          <Text style={styles.legendText}>Prise validée</Text>
+        </View>
+        <View style={styles.legendItem}>
+          <View style={[styles.ColorLegend, { backgroundColor: '#FFAF87' }]} />
+          <Text style={styles.legendText}>Prise en retard</Text>
+        </View>
+        <View style={styles.legendItem}>
+          <View style={[styles.ColorLegend, { backgroundColor: '#FF445D' }]} />
+          <Text style={styles.legendText}>Prise manquée</Text>
+        </View>
+      </View>
     </View>
   );
 };
@@ -37,11 +51,10 @@ const styles = StyleSheet.create({
     opacity: 1,
     backgroundColor: '#FFFFFF',
     justifyContent: 'center',
-    alignItems: 'center',
-    position: 'relative',
     overflow: 'hidden',
     borderWidth: 2,
     borderColor: '#E6EAED',
+    paddingBottom: 10,
   },
   positionValue: {
     position: 'absolute',
@@ -60,6 +73,31 @@ const styles = StyleSheet.create({
     transform: [{ rotate: '90deg' }],
     fontSize: 12,
     color: '#000000',
+  },
+  legendes: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingHorizontal: 10,
+    marginTop: 20,
+  },
+  legendItem: {
+    top: 100,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  ColorLegend: {
+    width: 24.9,
+    height: 10,
+    borderRadius: 5,
+    marginRight: 5,
+  },
+  legendText: {
+    fontSize: 12,
+    color: '#03314B',
+    fontFamily: 'Cera Pro', 
+    fontWeight: '500',
+    lineHeight: 20.11,
+    textAlign:'center'
   },
 });
 
