@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     borderWidth: 2,
     borderColor: '#E6EAED',
-    paddingBottom: 10,
+    paddingBottom: 1,
   },
   positionValue: {
     position: 'absolute',
@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
     marginRight: 5,
   },
   legendText: {
-    fontSize: 12,
+    fontSize: 10,
     color: '#03314B',
     fontFamily: 'Cera Pro', 
     fontWeight: '500',
